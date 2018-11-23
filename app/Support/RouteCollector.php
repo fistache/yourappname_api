@@ -17,7 +17,7 @@ abstract class RouteCollector
             list($version) = explode('/', $shortPath);
 
             $route = new Route($router);
-            $router->group(['namespace' => $version], function () use ($route, $filename) {
+            $router->group(['namespace' => $version, 'prefix' => $version], function () use ($route, $filename) {
                 /** @noinspection PhpIncludeInspection */
                 require_once $filename;
             });
